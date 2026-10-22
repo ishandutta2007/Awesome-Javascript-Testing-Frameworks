@@ -127,7 +127,7 @@ Curated open-source JavaScript and TypeScript testing frameworks, ranked by GitH
 
 1. 🍴 Fork this repository.
 2. ✍️ Add or update tool listings with factual descriptions and links.
-3. 🔢 Keep entries sorted by stars or company valuation where applicable.
+3. 🔢 Keep entries sorted by GitHub_Stars or company valuation where applicable.
 4. 🚀 Submit a Pull Request with a clear summary of the additions.
 
 ---
