@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070a13" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#e11d48" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Filters for Glow and Shadow -->
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- CSS Animations -->
+    <style>
+      @keyframes floatPill1 {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-12px) rotate(1.5deg); }
+      }
+      @keyframes floatPill2 {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(14px) rotate(-1.5deg); }
+      }
+      @keyframes floatPill3 {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(-1deg); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.65; transform: scale(1.08); }
+      }
+      @keyframes scanline {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(200%); }
+      }
+      @keyframes dashMove {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: 60; }
+      }
+
+      .floating-pill-1 { animation: floatPill1 6s ease-in-out infinite; }
+      .floating-pill-2 { animation: floatPill2 7s ease-in-out infinite; }
+      .floating-pill-3 { animation: floatPill3 5.5s ease-in-out infinite; }
+      .glow-orb { animation: pulseGlow 4s ease-in-out infinite; transform-origin: center; }
+      .data-stream { stroke-dasharray: 6 6; animation: dashMove 4s linear infinite; }
+    </style>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="1200" height="360" rx="18" fill="url(#bgGradient)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Background Animated Ambient Light Orbs -->
+  <circle cx="200" cy="100" r="140" fill="#f59e0b" opacity="0.12" class="glow-orb" filter="url(#neonGlow)" />
+  <circle cx="1020" cy="240" r="160" fill="#6366f1" opacity="0.15" class="glow-orb" filter="url(#neonGlow)" />
+  <circle cx="600" cy="180" r="110" fill="#ec4899" opacity="0.08" class="glow-orb" filter="url(#neonGlow)" />
+
+  <!-- Subtle Blueprint Tech Grid in Background -->
+  <g opacity="0.08" stroke="#94a3b8" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="360" />
+    <line x1="300" y1="0" x2="300" y2="360" />
+    <line x1="500" y1="0" x2="500" y2="360" />
+    <line x1="700" y1="0" x2="700" y2="360" />
+    <line x1="900" y1="0" x2="900" y2="360" />
+    <line x1="1100" y1="0" x2="1100" y2="360" />
+    <line x1="0" y1="90" x2="1200" y2="90" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="270" x2="1200" y2="270" />
+  </g>
+
+  <!-- Animated Data Connection Lines Behind Text -->
+  <path d="M 80 80 Q 250 140 450 60 T 950 110" fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.25" class="data-stream" />
+  <path d="M 150 310 Q 400 220 700 290 T 1150 240" fill="none" stroke="#6366f1" stroke-width="1.8" opacity="0.25" class="data-stream" />
+
+  <!-- Dynamic Animated Tech Floating Badges (Background / Side Layers) -->
+  <!-- Left Side Pill: Jest & Vitest -->
+  <g class="floating-pill-1" transform="translate(60, 65)">
+    <rect width="180" height="42" rx="21" fill="url(#cardGrad1)" stroke="#f59e0b" stroke-width="1.2" filter="url(#cardShadow)" />
+    <circle cx="24" cy="21" r="9" fill="#10b981" />
+    <text x="44" y="26" fill="#f1f5f9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">✓ Unit &amp; Component</text>
+  </g>
+
+  <g class="floating-pill-2" transform="translate(50, 245)">
+    <rect width="195" height="42" rx="21" fill="url(#cardGrad1)" stroke="#38bdf8" stroke-width="1.2" filter="url(#cardShadow)" />
+    <circle cx="24" cy="21" r="9" fill="#38bdf8" />
+    <text x="44" y="26" fill="#f1f5f9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">⚡ Vite &amp; Node Runners</text>
+  </g>
+
+  <!-- Right Side Pill: Playwright & Cypress -->
+  <g class="floating-pill-3" transform="translate(945, 75)">
+    <rect width="195" height="42" rx="21" fill="url(#cardGrad1)" stroke="#a855f7" stroke-width="1.2" filter="url(#cardShadow)" />
+    <circle cx="24" cy="21" r="9" fill="#a855f7" />
+    <text x="44" y="26" fill="#f1f5f9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">🎭 Cross-Browser E2E</text>
+  </g>
+
+  <g class="floating-pill-1" transform="translate(965, 240)">
+    <rect width="180" height="42" rx="21" fill="url(#cardGrad1)" stroke="#10b981" stroke-width="1.2" filter="url(#cardShadow)" />
+    <circle cx="24" cy="21" r="9" fill="#10b981" />
+    <text x="44" y="26" fill="#f1f5f9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">☁️ Cloud Test Grids</text>
+  </g>
+
+  <!-- FOREGROUND: Main Title and Subtitle Block (Stays Crisp & Unobstructed) -->
+  <!-- Top Tagline -->
+  <g transform="translate(600, 72)" text-anchor="middle">
+    <rect x="-160" y="-18" width="320" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text y="3" fill="#f59e0b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="2">⚡ THE DEFINITIVE TESTING MATRIX ⚡</text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="148" text-anchor="middle" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">
+    Awesome JavaScript Testing
+  </text>
+
+  <!-- Highlight Bar -->
+  <rect x="420" y="165" width="360" height="4" rx="2" fill="url(#primaryGlow)" />
+
+  <!-- Subtitle -->
+  <text x="600" y="206" text-anchor="middle" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="500">
+    Curated Frameworks, Self-Hosted Test Runners &amp; Cloud SaaS Infrastructure
+  </text>
+
+  <!-- Tags Ribbon in Center Foreground -->
+  <g transform="translate(600, 260)" text-anchor="middle">
+    <!-- Jest -->
+    <g transform="translate(-250, 0)">
+      <rect x="-45" y="-14" width="90" height="28" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text y="5" fill="#f1f5f9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">Jest</text>
+    </g>
+    <!-- Vitest -->
+    <g transform="translate(-150, 0)">
+      <rect x="-45" y="-14" width="90" height="28" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text y="5" fill="#facc15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">Vitest</text>
+    </g>
+    <!-- Playwright -->
+    <g transform="translate(-45, 0)">
+      <rect x="-50" y="-14" width="100" height="28" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text y="5" fill="#4ade80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">Playwright</text>
+    </g>
+    <!-- Cypress -->
+    <g transform="translate(65, 0)">
+      <rect x="-48" y="-14" width="96" height="28" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text y="5" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">Cypress</text>
+    </g>
+    <!-- Mocha -->
+    <g transform="translate(170, 0)">
+      <rect x="-45" y="-14" width="90" height="28" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text y="5" fill="#f43f5e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">Mocha</text>
+    </g>
+    <!-- WebdriverIO -->
+    <g transform="translate(275, 0)">
+      <rect x="-52" y="-14" width="104" height="28" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text y="5" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">WebdriverIO</text>
+    </g>
+  </g>
+</svg>
