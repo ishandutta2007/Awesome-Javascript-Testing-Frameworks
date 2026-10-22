@@ -1,161 +1,121 @@
-# Awesome-Javascript-Testing-Frameworks
+# Awesome JavaScript Testing Frameworks [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-## Top JavaScript Testing Frameworks Ecosystem
+> A curated directory of the best **JavaScript Testing Frameworks**, **TypeScript Test Runners**, **E2E Browser Automation Tools**, and **Cloud Testing SaaS Platforms** for modern full-stack web and Node.js quality assurance.
 
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-
-*Focused on Unit Testing, Component Testing & Self-Hosted Test Runners*  
-
-**Last updated: October 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **JavaScript Testing Frameworks**. These tools enable developers to write and run tests for JavaScript and TypeScript code—validating units, components, and integrations—forming the quality gate in every modern CI/CD pipeline.
-
-
-
-**Examples** include Jest, Vitest, Mocha, Jasmine, AVA, Tape, Cypress, Playwright, and WebdriverIO (the category leaders).
-
-
-
-**Open-source emphasis**: This section is heavily expanded with every major active project for self-hosting, avoiding cloud test runners, and retaining full control over test execution. The open-source landscape is anchored by **Jest** (the integrated standard for large React projects), **Vitest** (the Vite-native speed champion for modern stacks), **Mocha** (the flexible veteran for custom combinations), and **Jasmine** (the BDD pioneer with Angular heritage), with **AVA** and **Tape** serving minimalist or concurrent-testing needs, and **Cypress** / **Playwright** / **WebdriverIO** dominating E2E and browser testing .
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [SaaS/Hosted Platforms](#saas-hosted-platforms)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## SaaS/Hosted Platforms
-
-
-
-- **No dedicated SaaS platforms exist for JavaScript unit testing.** These frameworks run locally or in CI/CD pipelines—their purpose is to execute tests, not to provide hosted services. Cloud testing platforms like BrowserStack or Sauce Labs execute these open-source frameworks at scale but are not testing frameworks themselves.
-
-
-
-## Open-Source GitHub Projects
-
-
-
-- **[Jest](https://github.com/jestjs/jest)**  
-
-  **The integrated standard for large frontend projects.** Batteries-included: snapshot testing, mocking, coverage, and a built-in test runner . **Jest 30** (May 2026) removed deprecated matcher aliases (`toReturn` → `toHaveReturned`), expanded support for `.mts` and `.cts` file extensions, and improved TypeScript type inference for `toHaveBeenCalledWith` . **Jest 30.4** added native `require(esm)` support on Node 24.9+, React 19 snapshot support, and the `--collect-tests` flag for discovering tests without executing them . **Trade-offs**: complex ESM and transformation configurations require extra setup; slower than Vite-native alternatives . Best for existing React projects and teams that want an all-in-one testing solution with minimal decisions.
-
-
-
-- **[Vitest](https://github.com/vitest-dev/vitest)**  
-
-  **The Vite-native speed champion.** Reuses Vite's configuration and transformation pipeline, providing a watch mode and Jest-compatible API for easy migration . **Vitest 5.0** (September 2026) bundles its own dependencies to reduce `node_modules` bloat, adds **Trace View** for browser mode debugging (DOM snapshots and step-by-step replay), introduces `vi.when` for per-argument mock behaviors, and rewrites the benchmarking API . **Migration caveats**: `toThrow("")` now matches any error message (previously only empty messages), and custom matcher type declarations require separate augmentation for Vitest and Jest . Best for Vite-based modern stacks, projects prioritizing test speed, and teams migrating from Jest.
-
-
-
-- **[Mocha](https://github.com/mochajs/mocha)**  
-
-  **The flexible veteran.** Deliberately modular—you choose the assertion library (Chai, should.js), mocking tool (Sinon), and coverage tool . **Trade-offs**: requires assembling a toolchain; slower than integrated frameworks; WebdriverIO v10 upgraded to Mocha 12 . Best for projects needing custom dependency combinations and legacy Node.js codebases where Mocha is already established.
-
-
-
-- **[Jasmine](https://github.com/jasmine/jasmine)**  
-
-  **The BDD pioneer with Angular heritage.** Provides native spies and BDD-style syntax without external assertion libraries . **Jasmine 6.2.0** (May 2026) continues maintenance with minor releases . Best for Angular projects (which ship with Jasmine by default) and teams preferring its native spy API.
-
-
-
-- **[AVA](https://github.com/avajs/ava)**  
-
-  **The concurrent test runner.** Runs tests in parallel with isolated processes and no shared state. **AVA 8.0** (April 2026) requires Node.js 22.20 or 24.12+, is now fully ESM internally, and adds `test.skipIf()` / `test.runIf()` for conditional execution . **Trade-offs**: ESM-only direction may require migration for CommonJS projects. Best for projects that want fast parallel execution with strict isolation.
-
-
-
-- **[Tape](https://github.com/ljharb/tape)**  
-
-  **The minimalist TAP producer.** Produces TAP (Test Anything Protocol) output, works in Node.js and browsers, and has almost no dependencies . OpenSSF scorecard shows active maintenance (16 commits in 90 days) but weak code review practices (0/10) and unpinned dependencies . Best for projects that want dead-simple TAP output and minimal surface area.
-
-
-
-- **[Cypress](https://github.com/cypress-io/cypress)**  
-
-  **The browser testing specialist.** Runs inside the browser's event loop for time-travel debugging and automatic waiting. **Cypress 15.19** (July 2026) adds TypeScript 7 support and fewer browser crashes . Recent releases include Bun support, Vite 8 compatibility, and AI-assisted debugging via Cloud MCP . **Trade-offs**: not designed for multi-tab or cross-origin scraping; JavaScript/TypeScript only. Best for component and E2E testing of applications you control.
-
-
-
-- **[Playwright](https://github.com/microsoft/playwright)**  
-
-  **The cross-browser E2E standard.** Native support for Chromium, Firefox, and WebKit with auto-waiting and trace viewer. **Playwright 1.64** (October 2026) adds **WebMCP** support for testing browser-registered tools, custom frame rates for video recording, and improved video encoding (VP9) . Best for cross-browser E2E testing and AI agent workflows.
-
-
-
-- **[WebdriverIO](https://github.com/webdriverio/webdriverio)**  
-
-  **The full-protocol automation framework.** **WebdriverIO v10** (October 2026) requires Node.js 22.19+, makes every session a W3C session (JSON Wire Protocol removed), upgrades to Mocha 12 / Cucumber 13 / Vitest 5, and adds browser extension installation over BiDi . **Trade-offs**: steeper setup than Cypress; better for teams needing fine-grained browser control. Best for complex E2E suites and multi-browser grids.
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **Node.js Built-in Test Runner** — Since Node 20, `node:test` is stable. Best for zero-dependency Node.js libraries that want native testing without external frameworks .
-
-- **Japa** — Node.js-focused test runner with a clean API. Best for backend services wanting a modern alternative to Mocha.
-
-- **Uvu** — Ultra-lightweight test runner. Best for minimal dependencies in small projects.
-
-- **Frameworks for building custom systems**: Use **Vitest** for Vite-based frontends, **Jest** for existing React codebases, **Mocha** for legacy Node.js services, and **Jasmine** for Angular. Pair **Cypress** or **Playwright** for E2E, and use **WebdriverIO** when fine-grained browser control or multi-browser grids are required.
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- **Unit vs E2E distinction matters**: Jest, Vitest, Mocha, Jasmine, AVA, and Tape are unit/component test runners. Cypress, Playwright, and WebdriverIO are browser automation frameworks for E2E testing. Most projects need both layers.
-
-- **Jest to Vitest migration is not automatic**: while APIs overlap, module mocking, timers, snapshots, isolation, and transformation behavior differ. Migrate representative suites first before committing .
-
-- **Karma has been deprecated**: Angular 21 defaults to Vitest for unit testing. Do not select Karma for new projects .
-
-
+Looking for the best JavaScript test runners and frameworks? This repository provides a comprehensive comparison of industry-standard open-source testing libraries (unit, integration, component, and E2E) alongside enterprise cloud testing SaaS platforms.
 
 ---
 
+## Table of Contents
 
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+- [SaaS & Cloud Testing Platforms](#saas--cloud-testing-platforms)
+- [Open-Source JavaScript Testing Frameworks](#open-source-javascript-testing-frameworks)
+- [Framework Comparison & Selection Guide](#framework-comparison--selection-guide)
+- [How to Contribute](#how-to-contribute)
+- [Disclaimer](#disclaimer)
 
-**Made for JavaScript developers, QA engineers, and teams building reliable test suites.**  
+---
 
-Let's make JavaScript testing more open, appropriately scoped, and understandable.
+## Sector Overview & Market Dynamics
+
+The global software testing market is estimated at **$54 billion to $58 billion** in 2026, exhibiting steady double-digit compound growth propelled by AI-augmented test generation, shift-left continuous integration, and rapid frontend ecosystem evolution. The sector is **moderately fragmented**: while foundational test runners and browser drivers are predominantly open-source community standards (Jest, Vitest, Playwright), the commercial infrastructure layer features medium concentration where a handful of scalable cross-browser and cloud grid providers (BrowserStack, Sauce Labs, LambdaTest) capture the majority of enterprise QA budgets alongside specialized testing clouds like Cypress Cloud.
+
+---
+
+## SaaS & Cloud Testing Platforms
+
+While pure JavaScript unit tests typically execute in local environments or CI/CD pipelines, commercial cloud testing platforms deliver managed browser grids, distributed parallel execution, real-device test farms, and AI-powered flaky test analytics.
+
+| Platform | Pricing (Starting Tier) | Free Tier / Trial Limits | Company Size (Valuation / Revenue) | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **[BrowserStack](https://www.browserstack.com/)** | $29/mo (Live manual testing) / $199/mo (Automate 1 parallel thread) | Free trial with 100 minutes of automated testing and 30 minutes of interactive Live testing | $4.0B Valuation (~$230M+ ARR) | Scalable real-device cloud and cross-browser grid supporting Playwright, Cypress, Selenium, and Appium with local testing tunneling. |
+| **[LambdaTest](https://www.lambdatest.com/)** | $15/mo (Live interactive) / $99/mo (Automation 1 parallel thread) | Free Forever plan: 100 lifetime automation testing minutes (2 parallel sessions) & 60 mins/month live testing (10-min sessions) | $400M Valuation (~$19M ARR) | Cloud testing execution infrastructure and AI-driven test orchestration platform (HyperExecute) for high-speed parallel browser testing. |
+| **[Sauce Labs](https://saucelabs.com/)** | $39/mo (Live manual testing) / $149/mo (Virtual Cloud 1 parallel thread) | No permanent free tier; 28-day free trial coordinated via onboarding with limited concurrency | ~$250M Valuation (~$85M ARR) | Enterprise cloud-based test platform providing continuous testing, automated browser grids, mobile emulators, and real device farms. |
+| **[Cypress Cloud](https://www.cypress.io/cloud)** | $67/mo (Team tier with 10,000 test results/mo) | Free Forever plan: 500 test results per month, 3 user seats, and community flaky test detection | $43.3M Valuation (~$17.8M ARR) | Official companion SaaS for the Cypress test runner offering parallelization orchestration, smart test prioritization, and debugging artifacts. |
+
+---
+
+## Open-Source JavaScript Testing Frameworks
+
+Curated open-source JavaScript and TypeScript testing frameworks, ranked by GitHub community stars:
+
+1. **[Playwright](https://github.com/microsoft/playwright)** [![Stars](https://img.shields.io/github/stars/microsoft/playwright?style=social&color=white)](https://github.com/microsoft/playwright/stargazers)  
+   **The modern cross-browser E2E and component testing standard.** Built by Microsoft, Playwright delivers reliable end-to-end testing across Chromium, Firefox, and WebKit with a single API. Features native auto-waiting, network request interception, browser trace viewer, multi-tab execution, and WebMCP tooling support. Ideal for resilient web app testing, modern CI/CD pipelines, and browser automation.
+
+2. **[Puppeteer](https://github.com/puppeteer/puppeteer)** [![Stars](https://img.shields.io/github/stars/puppeteer/puppeteer?style=social&color=white)](https://github.com/puppeteer/puppeteer/stargazers)  
+   **The official headless Chrome/Chromium automation library.** Maintained by Google, Puppeteer provides a high-level Node.js API to control Chrome/Chromium over the DevTools Protocol. Excellent for automated UI testing, PDF generation, performance profiling, and web scraping workflows.
+
+3. **[Cypress](https://github.com/cypress-io/cypress)** [![Stars](https://img.shields.io/github/stars/cypress-io/cypress?style=social&color=white)](https://github.com/cypress-io/cypress/stargazers)  
+   **The fast, browser-native E2E testing framework.** Runs directly inside the browser's execution loop, enabling real-time reload, time-travel snapshot inspection, and automatic DOM waiting without explicit sleeps. Features visual component testing and deep ecosystem integrations.
+
+4. **[Jest](https://github.com/jestjs/jest)** [![Stars](https://img.shields.io/github/stars/jestjs/jest?style=social&color=white)](https://github.com/jestjs/jest/stargazers)  
+   **The batteries-included zero-config testing standard.** Widely adopted across React and frontend ecosystems, Jest provides assertion matchers, function mocking, snapshot testing, code coverage, and isolated parallel runner processes out of the box.
+
+5. **[Mocha](https://github.com/mochajs/mocha)** [![Stars](https://img.shields.io/github/stars/mochajs/mocha?style=social&color=white)](https://github.com/mochajs/mocha/stargazers)  
+   **The flexible, modular testing veteran.** Deliberately unopinionated, Mocha lets teams plug in their preferred assertion library (Chai), spy/mock tool (Sinon), and reporter. Excellent for legacy Node.js microservices and custom enterprise test pipelines.
+
+6. **[AVA](https://github.com/avajs/ava)** [![Stars](https://img.shields.io/github/stars/avajs/ava?style=social&color=white)](https://github.com/avajs/ava/stargazers)  
+   **The futuristic concurrent Node.js test runner.** Executes tests concurrently in separate worker processes with strict isolation and minimal global pollution. Built with native ESM support, concise syntax, and high execution speed for I/O-heavy suites.
+
+7. **[Testing Library](https://github.com/testing-library/react-testing-library)** [![Stars](https://img.shields.io/github/stars/testing-library/react-testing-library?style=social&color=white)](https://github.com/testing-library/react-testing-library/stargazers)  
+   **The user-centric UI component testing utility.** Encourages testing software from the perspective of real end-users rather than implementation details. Works seamlessly on top of Jest, Vitest, and modern DOM environments.
+
+8. **[Vitest](https://github.com/vitest-dev/vitest)** [![Stars](https://img.shields.io/github/stars/vitest-dev/vitest?style=social&color=white)](https://github.com/vitest-dev/vitest/stargazers)  
+   **The ultra-fast Vite-native unit and component test runner.** Shares configuration and transformation pipelines with Vite projects, featuring instantaneous HMR watch mode, multithreaded worker execution, Jest-compatible APIs, and browser-mode Trace debugging.
+
+9. **[Jasmine](https://github.com/jasmine/jasmine)** [![Stars](https://img.shields.io/github/stars/jasmine/jasmine?style=social&color=white)](https://github.com/jasmine/jasmine/stargazers)  
+   **The clean BDD testing framework without external dependencies.** Ships with built-in assertions and test spies without polluting the global environment. Widely recognized as the traditional default testing foundation across Angular ecosystems.
+
+10. **[WebdriverIO](https://github.com/webdriverio/webdriverio)** [![Stars](https://img.shields.io/github/stars/webdriverio/webdriverio?style=social&color=white)](https://github.com/webdriverio/webdriverio/stargazers)  
+    **The next-gen browser and mobile automation test framework.** Supports W3C WebDriver and WebDriver BiDi protocols natively, enabling automated cross-browser testing on desktop, mobile emulators, and real device cloud grids.
+
+11. **[Sinon.JS](https://github.com/sinonjs/sinon)** [![Stars](https://img.shields.io/github/stars/sinonjs/sinon?style=social&color=white)](https://github.com/sinonjs/sinon/stargazers)  
+    **Standalone test spies, stubs, and mocks.** Framework-agnostic mocking library that pairs seamlessly with Mocha, Tape, or custom testing harnesses.
+
+12. **[Chai](https://github.com/chaijs/chai)** [![Stars](https://img.shields.io/github/stars/chaijs/chai?style=social&color=white)](https://github.com/chaijs/chai/stargazers)  
+    **BDD / TDD assertion library for Node.js and the browser.** Provides readable chainable assertions (`should`, `expect`, `assert`) that can be paired with any JavaScript testing runner.
+
+13. **[Tape](https://github.com/tape-testing/tape)** [![Stars](https://img.shields.io/github/stars/tape-testing/tape?style=social&color=white)](https://github.com/tape-testing/tape/stargazers)  
+    **Minimalist TAP-producing test harness.** Lightweight, zero-configuration test runner producing clean Test Anything Protocol (TAP) output for both Node.js and browser environments.
+
+14. **[Cucumber.js](https://github.com/cucumber/cucumber-js)** [![Stars](https://img.shields.io/github/stars/cucumber/cucumber-js?style=social&color=white)](https://github.com/cucumber/cucumber-js/stargazers)  
+    **Behavior-Driven Development (BDD) with plain-language Gherkin syntax.** Enables cross-functional collaboration between engineering, product, and QA through executable specification documents.
+
+15. **[QUnit](https://github.com/qunitjs/qunit)** [![Stars](https://img.shields.io/github/stars/qunitjs/qunit?style=social&color=white)](https://github.com/qunitjs/qunit/stargazers)  
+    **Powerful, easy-to-use JavaScript testing framework.** Developed by the jQuery team for testing browser-side code and widely used across open-source libraries.
+
+16. **[uvu](https://github.com/lukeed/uvu)** [![Stars](https://img.shields.io/github/stars/lukeed/uvu?style=social&color=white)](https://github.com/lukeed/uvu/stargazers)  
+    **Ultra-fast and lightweight test runner for Node.js and browsers.** Near-instant startup speed with individual file isolation and minimal memory overhead.
+
+17. **[Japa](https://github.com/japa/runner)** [![Stars](https://img.shields.io/github/stars/japa/runner?style=social&color=white)](https://github.com/japa/runner/stargazers)  
+    **First-class Node.js test runner designed for backend applications.** Offers an intuitive test runner with plugins for API testing, database transactions, and snapshot testing.
+
+---
+
+## Framework Comparison & Selection Guide
+
+| Need / Use Case | Recommended Framework | Complementary Tools |
+| :--- | :--- | :--- |
+| **Modern Vite / Vue / Svelte Stacks** | **Vitest** | Testing Library |
+| **Enterprise React Codebases** | **Jest** or **Vitest** | React Testing Library |
+| **Cross-Browser E2E Automation** | **Playwright** | BrowserStack, Sauce Labs |
+| **Interactive In-Browser Testing** | **Cypress** | Cypress Cloud |
+| **Node.js Microservices (Modular)** | **Mocha** or **AVA** | Chai, Sinon.JS |
+| **Zero-Dependency Native Node.js** | **Node.js Test Runner** (`node:test`) | Built-in `node:assert` |
+| **BDD & Product Specifications** | **Cucumber.js** | Playwright, WebdriverIO |
+
+---
+
+## How to Contribute
+
+1. Fork this repository.
+2. Add or update tool listings with factual descriptions and links.
+3. Keep entries sorted by stars or company valuation where applicable.
+4. Submit a Pull Request with a summary of the additions.
+
+---
+
+## Disclaimer
+
+This list is community-curated for informational purposes. Framework benchmarks and platform pricing can vary based on concurrency needs, team scale, and cloud billing cycles. Verify real-time quotes on the official provider websites.
