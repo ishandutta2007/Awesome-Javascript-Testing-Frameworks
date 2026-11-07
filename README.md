@@ -104,7 +104,10 @@ Curated open-source JavaScript and TypeScript testing frameworks, ranked by GitH
 16. **[uvu](https://github.com/lukeed/uvu)** [![Stars](https://img.shields.io/github/stars/lukeed/uvu?style=social&color=white)](https://github.com/lukeed/uvu/stargazers) ⚡  
     **Ultra-fast and lightweight test runner for Node.js and browsers.** Near-instant startup speed with individual file isolation and minimal memory overhead.
 
-17. **[Japa](https://github.com/japa/runner)** [![Stars](https://img.shields.io/github/stars/japa/runner?style=social&color=white)](https://github.com/japa/runner/stargazers) 🧪  
+17. **[agent-qa](https://github.com/vostride/agent-qa)** [![Stars](https://img.shields.io/github/stars/vostride/agent-qa?style=social&color=white)](https://github.com/vostride/agent-qa/stargazers) 🧪\
+    **AI UI testing with persistent app memory.** Open source TypeScript QA tool for web, Android and iOS, with a local CLI/dashboard and QA MCP server. Its memidex engine retains verified app facts, cautions and procedures for later runs; evidence-gated self-improvement uses test outcomes to propose memory updates. [FSL-1.1-ALv2](https://github.com/vostride/agent-qa/blob/main/LICENSE.md).
+
+18. **[Japa](https://github.com/japa/runner)** [![Stars](https://img.shields.io/github/stars/japa/runner?style=social&color=white)](https://github.com/japa/runner/stargazers) 🧪\
     **First-class Node.js test runner designed for backend applications.** Offers an intuitive test runner with plugins for API testing, database transactions, and snapshot testing.
 
 ---
